@@ -1,0 +1,2 @@
+import {useDispatch} from 'react-redux';import {addToCart} from '../store/store';
+export default function ProductCard({product}){const dispatch=useDispatch();return <article className="card"><div className="pic"><img src={product.image} alt={product.title}/></div><small>{product.category}</small><h3>{product.title}</h3><div className="card-bottom"><strong>${product.price.toFixed(2)}</strong><button onClick={()=>dispatch(addToCart({id:product.id,title:product.title,price:product.price,image:product.image}))}>Add to Cart</button></div></article>}

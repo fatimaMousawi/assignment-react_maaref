@@ -1,0 +1,2 @@
+import {NavLink,Link} from 'react-router-dom';import {useSelector} from 'react-redux';import {useTheme} from '../context/ThemeContext';
+export default function Navbar(){const cart=useSelector(s=>s.cart);const{darkMode,toggleTheme}=useTheme();const count=cart.reduce((n,i)=>n+i.quantity,0);return <header><Link className="logo" to="/">Nova<span>Shop</span></Link><nav><NavLink to="/">Home</NavLink><NavLink to="/products">Products</NavLink><NavLink to="/cart">Cart ({count})</NavLink></nav><button onClick={toggleTheme}>{darkMode?'☀️ Light':'🌙 Dark'}</button></header>}

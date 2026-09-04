@@ -1,0 +1,2 @@
+import {useEffect,useState} from 'react';
+export default function useProducts(){const[products,setProducts]=useState([]),[loading,setLoading]=useState(true),[error,setError]=useState('');useEffect(()=>{async function load(){try{const r=await fetch('https://fakestoreapi.com/products');if(!r.ok)throw Error('Could not load products.');setProducts(await r.json())}catch(e){setError(e.message)}finally{setLoading(false)}}load()},[]);return{products,loading,error}}
